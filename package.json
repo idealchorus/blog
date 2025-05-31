@@ -9,7 +9,6 @@
     "start": "waku start"
   },
   "dependencies": {
-    "@hbsnow/rehype-sectionize": "^1.0.7",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-server-dom-webpack": "19.1.0",

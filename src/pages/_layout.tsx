@@ -11,14 +11,16 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const data = await getData();
 
   return (
-    <div className="font-['Nunito']">
+    <div className="mx-auto max-w-2xl py-4">
       <meta name="description" content={data.description} />
       <link rel="icon" type="image/png" href={data.icon} />
-      <Header />
-      <main className="m-6 flex items-center *:min-h-64 *:min-w-64 lg:m-0 lg:min-h-svh lg:justify-center">
-        {children}
-      </main>
-      <Footer />
+      <div className="flex flex-col h-svh">
+        <Header />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
