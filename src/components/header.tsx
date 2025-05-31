@@ -5,6 +5,7 @@ export const Header = () => {
     <header className="flex items-center gap-4 p-6 lg:fixed lg:left-0 lg:top-0">
       <h2 className="text-lg font-bold tracking-tight">
         <Link to="/">Waku starter</Link>
+        <Link to="/blog">Blog</Link>
       </h2>
     </header>
   );

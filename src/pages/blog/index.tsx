@@ -17,9 +17,9 @@ export default async function AboutPage() {
 
 const getData = async () => {
   const data = {
-    title: 'About',
-    headline: 'About Waku',
-    body: 'The minimal React framework',
+    title: 'Blog',
+    headline: 'Blog',
+    body: 'Blog',
   };
 
   return data;
