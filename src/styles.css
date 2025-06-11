@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lexend:wght@100..900&family=M+PLUS+Rounded+1c&family=Overpass+Mono:wght@300..700&display=swap');
 @import 'tailwindcss';
 
 @theme {
@@ -6,23 +5,4 @@
   --color-cookie-crumble: #1A1915;
   --color-oreo-primary: #3F6FFF;
   --color-oreo-secondary: #92EAFC;
-}
-
-@layer base {
-  * {
-    @apply text-cookie-crumble;
-    @apply font-['Lexend'];
-    @apply text-lg;
-    @apply antialiased;
-    @apply tracking-tight;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-['Alfa_Slab_One'];
-  }
-
-  code {
-    @apply font-['Overpass_Mono'];
-    @apply text-cream;
-  }
 }
