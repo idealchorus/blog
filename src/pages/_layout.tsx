@@ -12,10 +12,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const data = await getData();
 
   return (
-    <div className="mx-auto max-w-xl px-4">
+    <div className="mx-auto max-w-2xl px-4">
       <meta name="description" content={data.description} />
       <link rel="icon" type="image/png" href={data.icon} />
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-10">
       <header className="relative top-0 left-0">
         <div className="flex items-center gap-4 py-6">
           <nav className="flex gap-2 text-lg font-bold tracking-tight">

@@ -20,12 +20,12 @@ const processor = unified()
   .use(rehypeAutolinkHeadings)
   .use(rehypeClassNames, {
     'h1, h2, h3, h4, h5, h6': "font-serif font-bold tracking-tight antialiased text-pretty",
-    h1: 'text-5xl mb-8', 
-    h2: 'text-4xl mb-6 my-4',
-    h3: 'text-3xl mb-5 my-3',
-    h4: 'text-2xl mb-4 my-2',
-    h5: 'text-xl mb-3 my-1', 
-    h6: 'text-lg mb-2 my-1',
+    h1: 'text-6xl mb-8', 
+    h2: 'text-5xl mb-6 my-4',
+    h3: 'text-4xl mb-5 my-3',
+    h4: 'text-3xl mb-4 my-2',
+    h5: 'text-2xl mb-3 my-1', 
+    h6: 'text-xl mb-2 my-1',
     pre: 'font-mono'
   })
   .use(rehypeSanitize, {
