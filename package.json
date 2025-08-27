@@ -1,35 +1,32 @@
 {
-  "name": "blog",
-  "version": "0.0.0",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "dev": "waku dev",
-    "build": "waku build",
-    "start": "waku start"
-  },
-  "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-server-dom-webpack": "19.1.0",
-    "rehype-autolink-headings": "^7.1.0",
-    "rehype-class-names": "^2.0.0",
-    "rehype-sanitize": "^6.0.0",
-    "rehype-stringify": "^10.0.1",
-    "remark-frontmatter": "^5.0.0",
-    "remark-gfm": "^4.0.1",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.2",
-    "unified": "^11.0.5",
-    "waku": "0.23.1"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "4.1.7",
-    "@types/react": "19.1.4",
-    "@types/react-dom": "19.1.5",
-    "postcss": "8.5.3",
-    "tailwindcss": "4.1.7",
-    "typescript": "5.8.3"
-  },
-  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+	"name": "blog",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "react-router build",
+		"dev": "react-router dev",
+		"start": "react-router-serve ./build/server/index.js",
+		"typecheck": "react-router typegen && tsc"
+	},
+	"dependencies": {
+		"@markdoc/markdoc": "^0.5.4",
+		"@react-router/node": "^7.7.1",
+		"@react-router/serve": "^7.7.1",
+		"isbot": "^5.1.27",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-router": "^7.7.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.2",
+		"@react-router/dev": "^7.7.1",
+		"@tailwindcss/vite": "^4.1.4",
+		"@types/node": "^20",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2",
+		"tailwindcss": "^4.1.4",
+		"typescript": "^5.8.3",
+		"vite": "^6.3.3",
+		"vite-tsconfig-paths": "^5.1.4"
+	}
 }

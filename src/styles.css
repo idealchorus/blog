@@ -1,8 +1,0 @@
-@import 'tailwindcss';
-
-@theme {
-  --color-cream: #fdfbd4;
-  --color-cookie-crumble: #1A1915;
-  --color-oreo-primary: #3F6FFF;
-  --color-oreo-secondary: #92EAFC;
-}
