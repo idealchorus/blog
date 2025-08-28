@@ -20,7 +20,7 @@ export const links: Route.LinksFunction = () => [
 	},
 	{
 		rel: "stylesheet",
-		href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+		href: "https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap",
 	},
 ]
 
@@ -36,9 +36,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 			<body className="bg-sky-100 text-sky-950">
 				<div className="h-screen container flex flex-col gap-4 px-4 md:px-0 mx-auto py-4 md:py-8">
 					<header className="flex justify-center">
-						<h1 className="text-4xl font-mono">gopherchucks</h1>
+						<h1 className="text-2xl md:text-4xl font-mono">gopherchucks</h1>
 					</header>
 					<div className="flex flex-col gap-4">
+						{/* Box shadow stil debating if I'll use it - shadow-[4px_4px_0_0_var(--color-sky-900)] */}
 						<nav className="border-2 border-dashed rounded-lg py-2 px-2">
 							<ul className="flex items-center justify-center gap-4">
 								{[

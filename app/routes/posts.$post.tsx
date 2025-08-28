@@ -1,3 +1,19 @@
-export default function PostPage() {
-	return <div>Post Page</div>
+import React from "react"
+import Markdoc from "@markdoc/markdoc"
+import { readFile } from "node:fs/promises"
+import type { Route } from "./+types/posts.$post"
+
+export async function loader(args: Route.LoaderArgs) {
+	const file = await readFile(`./app/posts/${args.params.post}.md`, "utf-8")
+
+	const content = Markdoc.renderers.react(
+		Markdoc.transform(Markdoc.parse(file)),
+		React,
+	)
+
+	return { content }
+}
+
+export default function PostPage(props: Route.ComponentProps) {
+	return props.loaderData.content
 }
