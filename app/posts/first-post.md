@@ -1,7 +1,10 @@
 ---
+slug: my-first-post
 title: My first post
-date: 2025-08-27
-type: byte
+createdDate: 2025-08-27
+postType: byte
+contentType: static
+description: This is my first post
 ---
 
 # My first post
