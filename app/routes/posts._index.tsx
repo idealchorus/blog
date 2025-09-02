@@ -41,12 +41,14 @@ export default function PostsPage(props: Route.ComponentProps) {
 			<ul>
 				{props.loaderData.posts.map((post) => (
 					post.postType === 'nibble' ? (
-						<React.Fragment key={post.slug}>{post.body as ReactNode}</React.Fragment>
+						<li key={post.slug}>
+							{post.body as ReactNode}
+						</li>
 					) : (
-						<div key={post.slug}>
+						<li key={post.slug}>
 							<div>{post.title}</div>
 							<div>{post.description}</div>
-						</div>
+						</li>
 					)
 				))}
 			</ul>
