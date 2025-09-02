@@ -1,8 +1,6 @@
 import { type ReactNode, isValidElement } from "react"
 import * as z from "zod"
 
-const reactNodeSchema = z.custom<ReactNode>((value) => isValidElement(value))
-
 const nibbleLiteralSchema = z.literal("nibble")
 const byteLiteralSchema = z.literal("byte")
 
@@ -34,7 +32,7 @@ export const postFrontMatterSchema = z.discriminatedUnion("postType", [
 
 export const postSummarySchema = z.discriminatedUnion("postType", [
 	nibbleFrontMatterSchema.extend({
-		body: reactNodeSchema,
+		body: z.any(),
 	}),
 	byteFrontMatterSchema,
 ])

@@ -2,7 +2,7 @@ import { readdir } from "node:fs/promises"
 import Markdoc from "@markdoc/markdoc"
 import type { Route } from "./+types/posts._index"
 import { postFrontMatterSchema, postSummarySchema } from "~/library/schemas"
-import React, { type ReactNode } from "react"
+import React from "react"
 
 export async function loader() {
 	const postsDir = await readdir("./app/posts")
@@ -20,12 +20,7 @@ export async function loader() {
 
 		const post = frontMatter.postType === 'nibble' ? {
 			...frontMatter,
-			body: frontMatter.contentType === 'static' ? Markdoc.renderers.reactStatic(
-				Markdoc.transform(ast),
-			) : Markdoc.renderers.react(
-					Markdoc.transform(ast),
-					React,
-				),
+			body: Markdoc.transform(ast)
 		} : frontMatter
 
 		return postSummarySchema.parse(post)
@@ -42,7 +37,10 @@ export default function PostsPage(props: Route.ComponentProps) {
 				{props.loaderData.posts.map((post) => (
 					post.postType === 'nibble' ? (
 						<li key={post.slug}>
-							{post.body as ReactNode}
+              {post.contentType === "static"
+                ?
+                  Markdoc.renderers.reactStatic(post.body)
+                : Markdoc.renderers.react(post.body, React)}
 						</li>
 					) : (
 						<li key={post.slug}>
