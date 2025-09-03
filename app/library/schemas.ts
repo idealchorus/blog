@@ -36,3 +36,5 @@ export const postSummarySchema = z.discriminatedUnion("postType", [
 	}),
 	byteFrontMatterSchema,
 ])
+
+export type PostSummaryType = z.infer<typeof postSummarySchema>
