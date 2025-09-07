@@ -1,5 +1,4 @@
 ---
-slug: my-first-post
 title: My first post
 createdDate: 2025-08-27
 postType: byte

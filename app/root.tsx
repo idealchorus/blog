@@ -40,7 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					</header>
 					<div className="flex flex-col gap-4">
 						{/* Box shadow stil debating if I'll use it - shadow-[4px_4px_0_0_var(--color-sky-900)] */}
-						<nav className="border-2 border-dashed rounded-lg py-2 px-2">
+						<nav className="border-2 border-dashed rounded-lg py-2 px-2 shadow-[4px_4px_0_0_theme(colors.sky.900)]">
 							<ul className="flex items-center justify-center gap-4">
 								{[
 									["/", "Home"],

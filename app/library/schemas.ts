@@ -1,4 +1,3 @@
-import { type ReactNode, isValidElement } from "react"
 import * as z from "zod"
 
 const nibbleLiteralSchema = z.literal("nibble")
@@ -8,7 +7,6 @@ const staticLiteralSchema = z.literal("static")
 const dynamicLiteralSchema = z.literal("dynamic")
 
 const basePostFrontMatterSchema = z.object({
-	slug: z.string(),
 	createdDate: z.string(),
 	editedDate: z.string().optional(),
 	postType: z.union([nibbleLiteralSchema, byteLiteralSchema]),
@@ -32,9 +30,12 @@ export const postFrontMatterSchema = z.discriminatedUnion("postType", [
 
 export const postSummarySchema = z.discriminatedUnion("postType", [
 	nibbleFrontMatterSchema.extend({
+		slug: z.string(),
 		body: z.any(),
 	}),
-	byteFrontMatterSchema,
+	byteFrontMatterSchema.extend({
+		slug: z.string(),
+	}),
 ])
 
 export type PostSummaryType = z.infer<typeof postSummarySchema>
