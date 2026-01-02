@@ -24,6 +24,12 @@ export const links: Route.LinksFunction = () => [
 	},
 ]
 
+const paths = [
+	["/", "Home"],
+	["/posts", "Posts"],
+	["/about", "About"],
+] as const
+
 export function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
@@ -36,17 +42,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 			<body className="bg-sky-100 text-sky-950">
 				<div className="h-screen container flex flex-col gap-4 px-4 md:px-0 mx-auto py-4 md:py-8">
 					<header className="flex justify-center">
-						<h1 className="text-2xl md:text-4xl font-mono">gopherchucks</h1>
+						<h1 className="text-2xl md:text-4xl font-mono">charles duso</h1>
 					</header>
 					<div className="flex flex-col gap-4">
 						{/* Box shadow stil debating if I'll use it - shadow-[4px_4px_0_0_var(--color-sky-900)] */}
 						<nav className="border-2 border-dashed rounded-lg py-2 px-2 shadow-[4px_4px_0_0_theme(colors.sky.900)]">
 							<ul className="flex items-center justify-center gap-4">
-								{[
-									["/", "Home"],
-									["/posts", "Posts"],
-									["/about", "About"],
-								].map(([to, name]) => (
+								{paths.map(([to, name]) => (
 									<li key={to}>
 										<NavLink
 											to={to}
