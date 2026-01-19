@@ -1,0 +1,8 @@
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--background-on);
+
+    height: 100vh;
+  }
+}

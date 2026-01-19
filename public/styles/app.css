@@ -1,13 +1,14 @@
-@import "tailwindcss";
+@layer reset, base, components, modules, utilities;
 
-@theme {
-	--font-sans:
-		"Lexend", sans-serif;
+@import url("./reset.css") layer(reset);
+@import url("./base.css") layer(base);
 
-	--font-mono:
-		"Spline Sans Mono", monospace;
+:root {
+  /* Primitive tokens */
+  --font-sans: "Lexend", sans-serif;
+  --font-mono: "Spline Sans Mono", monospace;
 
-	--color-sky-50: oklch(0.95 0.3 265);
+  --color-sky-50: oklch(0.95 0.3 265);
   --color-sky-100: oklch(0.9 0.3 265);
   --color-sky-200: oklch(0.8 0.3 265);
   --color-sky-300: oklch(0.7 0.3 265);
@@ -30,5 +31,8 @@
   --color-paper-800: oklch(32.89% 0.035 78.54);
   --color-paper-900: oklch(23.23% 0.025 77.19);
   --color-paper-950: oklch(17.63% 0.019 82.39);
-}
 
+  /* Semantic tokens */
+  --background: var(--color-sky-100);
+  --background-on: var(--color-sky-950);
+}
