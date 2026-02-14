@@ -15,7 +15,7 @@ export async function loader(args: Route.LoaderArgs) {
 
 export default function PostPage(props: Route.ComponentProps) {
   return (
-    <article className="page">
+    <article>
       {props.loaderData as React.ReactNode}
     </article>
   )
