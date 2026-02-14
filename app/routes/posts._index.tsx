@@ -27,7 +27,6 @@ export async function loader() {
 		return postSummarySchema.parse(({
 			...frontMatter,
 			slug: rawPost.slug,
-			body: frontMatter.postType === 'nibble' ? Markdoc.transform(ast) : undefined
 		}))
 	})
 
@@ -36,13 +35,15 @@ export async function loader() {
 
 export default function PostsPage(props: Route.ComponentProps) {
 	return (
-		<div>
-			<h1 className="font-mono text-4xl md:text-5xl mb-6">Posts</h1>
-			<ul className="flex flex-col gap-4">
+		<article>
+			<header>
+				<h1>Posts</h1>
+			</header>
+			<ul className="flex flex-col gap-3">
 				{props.loaderData.map((postSummary) => (
 					<PostSummary key={postSummary.slug} postSummary={postSummary} />
 				))}
 			</ul>
-		</div>
+		</article>
 	)
 }

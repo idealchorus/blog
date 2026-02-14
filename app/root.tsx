@@ -1,5 +1,6 @@
 import {
 	isRouteErrorResponse,
+	Link,
 	Links,
 	Meta,
 	NavLink,
@@ -9,6 +10,8 @@ import {
 } from "react-router"
 
 import type { Route } from "./+types/root"
+
+import './app.css'
 
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -21,10 +24,6 @@ export const links: Route.LinksFunction = () => [
 		rel: "stylesheet",
 		href: "https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap",
 	},
-	{
-		rel: "stylesheet",
-		href: "/styles/app.css",
-	}
 ]
 
 const paths = [
@@ -42,21 +41,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body>
+			<body className="bg-sky-200 text-paper-900">
 				<div className="container flex flex-col gap-4 max-w-4xl px-4 md:px-0 mx-auto py-4 md:py-8">
 					<header className="flex justify-center">
-						<h1 className="text-2xl md:text-4xl font-mono">charles duso</h1>
+						<Link to="/" className="heading text-xl md:text-3xl no-underline">Ideal Chorus</Link>
 					</header>
-					<div className="flex flex-col gap-4">
-						{/* Box shadow stil debating if I'll use it - shadow-[4px_4px_0_0_var(--color-sky-900)] */}
-						<nav className="border-2 border-dashed rounded-lg py-2 px-2 shadow-[4px_4px_0_0_var(--color-sky-900)]">
-							<ul className="flex items-center justify-center gap-4">
+					<div className="flex flex-col gap-5">
+						<nav className="paper p-2">
+							<ul className="flex items-center justify-center gap-5 md:gap-7">
 								{paths.map(([to, name]) => (
 									<li key={to}>
 										<NavLink
 											to={to}
 											className={({ isActive }) =>
-												isActive ? "underline decoration-wavy" : ""
+												isActive ? "decoration-wavy" : ""
 											}
 										>
 											{name}
@@ -65,7 +63,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 								))}
 							</ul>
 						</nav>
-						<main className="grow">{children}</main>
+						<main className="paper p-3 md:p-5">{children}</main>
 					</div>
 				</div>
 				<ScrollRestoration />
@@ -79,6 +77,7 @@ export default function App() {
 	return <Outlet />
 }
 
+// TODO - custom error boundary
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 	let message = "Oops!"
 	let details = "An unexpected error occurred."

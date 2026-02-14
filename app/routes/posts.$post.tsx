@@ -1,4 +1,4 @@
-import React from "react"
+import React, { type ReactNode } from "react"
 import Markdoc from "@markdoc/markdoc"
 import { readFile } from "node:fs/promises"
 import type { Route } from "./+types/posts.$post"
@@ -15,5 +15,9 @@ export async function loader(args: Route.LoaderArgs) {
 }
 
 export default function PostPage(props: Route.ComponentProps) {
-	return props.loaderData.content
+	return (
+		<article className="page">
+			{props.loaderData.content as ReactNode}
+		</article>
+	)
 }

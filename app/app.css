@@ -1,9 +1,6 @@
-@layer reset, base, components, modules, utilities;
+@import "tailwindcss";
 
-@import url("./reset.css") layer(reset);
-@import url("./base.css") layer(base);
-
-:root {
+@theme {
   /* Primitive tokens */
   --font-sans: "Lexend", sans-serif;
   --font-mono: "Spline Sans Mono", monospace;
@@ -31,8 +28,66 @@
   --color-paper-800: oklch(32.89% 0.035 78.54);
   --color-paper-900: oklch(23.23% 0.025 77.19);
   --color-paper-950: oklch(17.63% 0.019 82.39);
+}
 
-  /* Semantic tokens */
-  --background: var(--color-sky-100);
-  --background-on: var(--color-sky-950);
+@layer base {
+  body {
+    background-color: var(--color-sky-200);
+    color: var(--color-paper-900);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .heading {
+    font-family: var(--font-mono);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-snug);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-sky-950);
+    text-wrap: pretty;
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+  }
+
+  h3 {
+    font-size: var(--text-2xl);
+  }
+
+  h4 {
+    font-size: var(--text-xl);
+  }
+
+  h5 {
+    font-size: var(--text-lg);
+  }
+
+  h6 {
+    font-size: var(--text-base);
+  }
+
+  a {
+    color: var(--color-sky-950);
+    text-decoration: underline;
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  .paper {
+    background-color: var(--color-paper-50);
+    border: 2px;
+    border-style: dashed;
+    border-radius: var(--radius-lg);
+    box-shadow: 4px 4px 0px 0px var(--color-sky-900);
+  }
 }
