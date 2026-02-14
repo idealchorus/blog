@@ -8,7 +8,7 @@ node_modules
 build
 
 # Vite
-.vite
+.vite/
 
 # vscode
-.vscode
+.vscode/
