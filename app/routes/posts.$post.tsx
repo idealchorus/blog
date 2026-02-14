@@ -1,23 +1,22 @@
-import React, { type ReactNode } from "react"
+import React from "react"
 import Markdoc from "@markdoc/markdoc"
-import { readFile } from "node:fs/promises"
-import type { Route } from "./+types/posts.$post"
+import type { Route } from "../../.react-router/types/app/routes/+types/posts.$post.ts"
 
 export async function loader(args: Route.LoaderArgs) {
-	const file = await readFile(`./app/posts/${args.params.post}.md`, "utf-8")
+  const file = await Deno.readTextFile(`./app/posts/${args.params.post}.md`)
 
-	const content = Markdoc.renderers.react(
-		Markdoc.transform(Markdoc.parse(file)),
-		React,
-	)
+  const content = Markdoc.renderers.react(
+    Markdoc.transform(Markdoc.parse(file)),
+    React,
+  )
 
-	return { content }
+  return content
 }
 
 export default function PostPage(props: Route.ComponentProps) {
-	return (
-		<article className="page">
-			{props.loaderData.content as ReactNode}
-		</article>
-	)
+  return (
+    <article className="page">
+      {props.loaderData}
+    </article>
+  )
 }

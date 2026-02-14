@@ -1,0 +1,64 @@
+{
+  "tasks": {
+    "build": "deno run -A npm:@react-router/dev@^7.11.0 build",
+    "dev": "deno run -A npm:@react-router/dev@^7.11.0 dev",
+    "start": "deno run -A npm:@react-router/serve@^7.11.0 ./build/server/index.js",
+    "typegen": "deno run -A npm:@react-router/dev@^7.11.0 typegen",
+    "typecheck": "deno task typegen && deno check .",
+    "lint": "deno lint",
+    "format": "deno fmt",
+    "test": "deno test"
+  },
+  "imports": {
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.6",
+    "@std/yaml": "jsr:@std/yaml@^1.0.11",
+    "@types/react": "npm:@types/react@^19.2.3",
+    "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
+    "@std/assert": "jsr:@std/assert@1",
+    "@markdoc/markdoc": "npm:@markdoc/markdoc@^0.5.4",
+    "@react-router/node": "npm:@react-router/node@^7.11.0",
+    "@react-router/serve": "npm:@react-router/serve@^7.11.0",
+    "@react-router/dev/": "npm:@react-router/dev@^7.11.0/",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.18",
+    "isbot": "npm:isbot@^5.1.32",
+    "react": "npm:react@^19.2.3",
+    "react-dom": "npm:react-dom@^19.2.3",
+    "react-router": "npm:react-router@^7.11.0",
+    "tailwindcss": "npm:tailwindcss@^4.1.18",
+    "vite": "npm:vite@^7.3.0",
+    "vite-tsconfig-paths": "npm:vite-tsconfig-paths@^6.0.3",
+    "zod": "npm:zod@^4.3.4"
+  },
+  "nodeModulesDir": "auto",
+  "include": [
+    "app/**/*",
+    ".react-router/types/**/*"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "dom.asynciterable",
+      "deno.ns"
+    ],
+    "types": [
+      "node",
+      "vite/client",
+      "react",
+      "react-dom",
+      "@types/react"
+    ],
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "verbatimModuleSyntax": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true
+  },
+  "fmt": {
+    "semiColons": false
+  }
+}

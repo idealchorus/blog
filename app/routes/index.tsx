@@ -1,10 +1,10 @@
 export function meta() {
-	return [
-		{ title: "New React Router App" },
-		{ name: "description", content: "Welcome to React Router!" },
-	]
+  return [
+    { title: "New React Router App" },
+    { name: "description", content: "Welcome to React Router!" },
+  ]
 }
 
 export default function HomePage() {
-	return <div>Home Page</div>
+  return <div>Home Page</div>
 }

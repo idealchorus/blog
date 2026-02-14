@@ -1,0 +1,76 @@
+{
+  "hash": "814824fa",
+  "configHash": "8e845545",
+  "lockfileHash": "e3b0c442",
+  "browserHash": "6061f5e8",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/.deno/react@19.2.4/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "461dc445",
+      "needsInterop": true
+    },
+    "react/jsx-runtime": {
+      "src": "../../node_modules/.deno/react@19.2.4/node_modules/react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "458081c5",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/.deno/react@19.2.4/node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "221f5122",
+      "needsInterop": true
+    },
+    "react-dom": {
+      "src": "../../node_modules/.deno/react-dom@19.2.4/node_modules/react-dom/index.js",
+      "file": "react-dom.js",
+      "fileHash": "006e7272",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/.deno/react-dom@19.2.4/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "550d878b",
+      "needsInterop": true
+    },
+    "react-router": {
+      "src": "../../node_modules/.deno/react-router@7.13.0/node_modules/react-router/dist/development/index.mjs",
+      "file": "react-router.js",
+      "fileHash": "e4034651",
+      "needsInterop": false
+    },
+    "react-router/dom": {
+      "src": "../../node_modules/.deno/react-router@7.13.0/node_modules/react-router/dist/development/dom-export.mjs",
+      "file": "react-router_dom.js",
+      "fileHash": "95f0d218",
+      "needsInterop": false
+    },
+    "@markdoc/markdoc": {
+      "src": "../../node_modules/.deno/@markdoc+markdoc@0.5.4/node_modules/@markdoc/markdoc/dist/index.mjs",
+      "file": "@markdoc_markdoc.js",
+      "fileHash": "741276cf",
+      "needsInterop": false
+    },
+    "zod": {
+      "src": "../../node_modules/.deno/zod@4.3.6/node_modules/zod/index.js",
+      "file": "zod.js",
+      "fileHash": "27cb4a33",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-WLNSNAS5": {
+      "file": "chunk-WLNSNAS5.js"
+    },
+    "chunk-34PUQVNN": {
+      "file": "chunk-34PUQVNN.js"
+    },
+    "chunk-34OVBIY7": {
+      "file": "chunk-34OVBIY7.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}
