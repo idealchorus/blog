@@ -17,7 +17,7 @@
     "@markdoc/markdoc": "npm:@markdoc/markdoc@^0.5.4",
     "@react-router/node": "npm:@react-router/node@^7.11.0",
     "@react-router/serve": "npm:@react-router/serve@^7.11.0",
-    "@react-router/dev/": "npm:@react-router/dev@^7.11.0/",
+    "@react-router/dev": "npm:@react-router/dev@^7.11.0/",
     "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.18",
     "isbot": "npm:isbot@^5.1.32",
     "react": "npm:react@^19.2.3",
@@ -30,8 +30,11 @@
   },
   "nodeModulesDir": "auto",
   "include": [
-    "app/**/*",
-    ".react-router/types/**/*"
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    ".react-router/**"
   ],
   "compilerOptions": {
     "lib": [
@@ -46,6 +49,10 @@
       "react",
       "react-dom",
       "@types/react"
+    ],
+    "rootDirs": [
+      ".",
+      "./.react-router/types"
     ],
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
