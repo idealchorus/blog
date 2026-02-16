@@ -14,6 +14,7 @@ Here's a list of the things I need to do to the site.
 
 - Render created and edited date as separate entities
 - Add styles for all markdown structures (e.g. code snippets, alerts, etc.)
+- Custom error page UI
 - Searching
 - Tag system (e.g. posts have tags that can be filtered on)
 - View transitions between pages
