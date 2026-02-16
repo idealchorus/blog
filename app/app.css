@@ -125,12 +125,8 @@
     padding-top: calc(var(--spacing) * 3);
     padding-bottom: calc(var(--spacing) * 3);
 
-    header {
-      margin-bottom: calc(var(--spacing) * 1);
-    }
-
     h2 {
-      font-size: var(--text-2xl);
+      font-size: var(--text-xl);
     }
 
     .date {

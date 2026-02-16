@@ -2,7 +2,7 @@ import { parse } from "@std/yaml"
 import { postFrontmatterSchema, postSummarySchema } from "../library/schemas.ts"
 import Markdoc from "@markdoc/markdoc"
 import type { Route } from "../../.react-router/types/app/routes/+types/index.ts"
-import PostSummary from "../components/post-summary.tsx"
+import PostSummaries from "../components/post-summaries.tsx"
 
 export async function loader() {
   const postsDir = Deno.readDir("./app/posts")
@@ -48,11 +48,7 @@ export default function HomePage(props: Route.ComponentProps) {
         <header>
           <h2>Recent posts</h2>
         </header>
-        <ul className="flex flex-col divide-y divide-sky-950">
-          {props.loaderData.recentPosts.map((postSummary) => (
-            <PostSummary key={postSummary.slug} postSummary={postSummary} />
-          ))}
-        </ul>
+        <PostSummaries postSummaries={props.loaderData.recentPosts} />
       </section>
     </article>
   )
