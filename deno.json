@@ -19,6 +19,7 @@
     "@react-router/serve": "npm:@react-router/serve@^7.13.0",
     "@react-router/dev": "npm:@react-router/dev@^7.13.0",
     "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.18",
+    "@vercel/react-router": "npm:@vercel/react-router@^1.2.5",
     "isbot": "npm:isbot@^5.1.32",
     "react": "npm:react@^19.2.4",
     "react-dom": "npm:react-dom@^19.2.4",
