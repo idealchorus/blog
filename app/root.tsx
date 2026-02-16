@@ -43,9 +43,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg-sky-200 text-paper-900">
-        <div className="container flex flex-col gap-4 max-w-4xl px-4 md:px-0 mx-auto py-4 md:py-8">
+        <div className="container flex flex-col gap-4 max-w-4xl px-3 lg:px-0 mx-auto py-3 md:py-7">
           <header className="flex justify-center">
-            <Link to="/" className="heading text-xl md:text-3xl no-underline">
+            <Link to="/" className="heading text-2xl md:text-3xl no-underline">
               Ideal Chorus
             </Link>
           </header>

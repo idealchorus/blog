@@ -34,6 +34,7 @@
   body {
     background-color: var(--color-sky-200);
     color: var(--color-paper-900);
+    font-size: var(--text-lg);
   }
 
   h1,
@@ -89,5 +90,43 @@
     border-style: dashed;
     border-radius: var(--radius-lg);
     box-shadow: 4px 4px 0px 0px var(--color-sky-900);
+  }
+
+  .content-flow {
+    --flow-space: clamp(0.8rem, 0.5rem + 0.8vw, 1.2rem);
+    --flow-after-heading-space: clamp(0.55rem, 0.4rem + 0.6vw, 0.85rem);
+    --flow-heading-space: clamp(1.3rem, 0.9rem + 1vw, 1.8rem);
+  }
+
+  .content-flow > * + * {
+    margin-block-start: var(--flow-space);
+  }
+
+  @scope (.content-flow) {
+    :scope {
+      line-height: var(--leading-relaxed);
+      text-wrap: pretty;
+    }
+
+    :is(h1, h2, h3, h4, h5, h6) {
+      text-wrap: balance;
+      margin-block-start: var(--flow-heading-space);
+    }
+
+    :is(h1, h2, h3, h4, h5, h6) + * {
+      margin-block-start: var(--flow-after-heading-space);
+    }
+
+    :is(p, li, blockquote) {
+      max-inline-size: 68ch;
+    }
+
+    :is(ul, ol) {
+      padding-inline-start: 1.25em;
+    }
+
+    li + li {
+      margin-block-start: 0.35em;
+    }
   }
 }

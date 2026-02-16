@@ -1,7 +1,7 @@
 import Markdoc from "@markdoc/markdoc"
 import type { Route } from "../../.react-router/types/app/routes/+types/posts._index.ts"
 import { parse } from "@std/yaml"
-import { postFrontMatterSchema, postSummarySchema } from "../library/schemas.ts"
+import { postFrontmatterSchema, postSummarySchema } from "../library/schemas.ts"
 import PostSummary from "../components/post-summary.tsx"
 
 export async function loader() {
@@ -12,14 +12,17 @@ export async function loader() {
     if (maybePost.isFile && maybePost.name.endsWith(".md")) {
       const rawPost = await Deno.readTextFile(`./app/posts/${maybePost.name}`)
 
-      rawPosts.push({ slug: maybePost.name.replace(".md", ""), content: rawPost })
+      rawPosts.push({
+        slug: maybePost.name.replace(".md", ""),
+        content: rawPost,
+      })
     }
   }
 
   const postSummaries = rawPosts.map((rawPost) => {
     const ast = Markdoc.parse(rawPost.content)
 
-    const frontMatter = postFrontMatterSchema.parse(
+    const frontMatter = postFrontmatterSchema.parse(
       parse(ast.attributes.frontmatter),
     )
 
@@ -34,11 +37,11 @@ export async function loader() {
 
 export default function PostsPage(props: Route.ComponentProps) {
   return (
-    <article>
+    <article className="content-flow">
       <header>
         <h1>Posts</h1>
       </header>
-      <ul className="flex flex-col gap-3">
+      <ul className="flex flex-col divide-y divide-sky-950">
         {props.loaderData.map((postSummary) => (
           <PostSummary key={postSummary.slug} postSummary={postSummary} />
         ))}
