@@ -9,6 +9,6 @@ export default {
       .filter((file) => file.endsWith(".md"))
       .map((file) => `/posts/${file.replace(".md", "")}`)
 
-    return ["/about", ...postPaths]
+    return ["/", "/posts", ...postPaths]
   },
 } satisfies Config

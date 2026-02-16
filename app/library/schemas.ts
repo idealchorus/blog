@@ -1,8 +1,5 @@
 import * as z from "zod"
 
-const staticLiteralSchema = z.literal("static")
-const dynamicLiteralSchema = z.literal("dynamic")
-
 function parseInZone (value: string) {
   const plainDate = Temporal.PlainDate.from(value)
   const zonedDate = plainDate.toZonedDateTime({ timeZone: 'America/Phoenix', plainTime: '00:00' })
@@ -13,7 +10,6 @@ function parseInZone (value: string) {
 export const postFrontmatterSchema = z.object({
   title: z.string(),
   description: z.string(),
-  contentType: z.union([staticLiteralSchema, dynamicLiteralSchema]),
   createdDate: z.string().transform(parseInZone),
   editedDate: z.string().transform(parseInZone).optional(),
 })

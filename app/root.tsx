@@ -44,7 +44,6 @@ export function meta() {
 const paths = [
   ["/", "Home"],
   ["/posts", "Posts"],
-  ["/about", "About"],
 ] as const
 
 export function Layout({ children }: { children: React.ReactNode }) {
