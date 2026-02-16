@@ -114,7 +114,10 @@ const markdocConfig: Markdoc.Config = {
         return new Markdoc.Tag("article", { class: "page post" }, [
           new Markdoc.Tag("header", {}, [
             new Markdoc.Tag("h1", { id: postId }, [title]),
-            new Markdoc.Tag("time", { class: "date", datetime: date.toISOString() }, [
+            new Markdoc.Tag("time", {
+              class: "date",
+              datetime: date.toISOString(),
+            }, [
               dateToLocaleDateString(date),
             ]),
           ]),

@@ -11,7 +11,5 @@ export async function loader(args: Route.LoaderArgs) {
 }
 
 export default function PostPage(props: Route.ComponentProps) {
-  return (
-    <div dangerouslySetInnerHTML={{ __html: props.loaderData }} />
-  )
+  return <div dangerouslySetInnerHTML={{ __html: props.loaderData }} />
 }

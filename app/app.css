@@ -73,7 +73,7 @@
     letter-spacing: var(--tracking-tight);
   }
 
-  @scope(:is(.page, .post)) {
+  @scope (:is(.page, .post)) {
     h1 {
       font-size: var(--text-4xl);
     }
@@ -111,17 +111,17 @@
     }
   }
 
-  @scope(.post) {
+  @scope (.post) {
     .date {
       font-size: var(--text-sm);
     }
 
-    :not(header, section)+ :not(header, section) {
+    :not(header, section) + :not(header, section) {
       margin-top: calc(var(--spacing) * 3);
     }
   }
 
-  @scope(.post-summary) {
+  @scope (.post-summary) {
     padding-top: calc(var(--spacing) * 3);
     padding-bottom: calc(var(--spacing) * 3);
 

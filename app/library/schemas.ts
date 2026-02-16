@@ -1,9 +1,12 @@
 import * as z from "zod"
 
-function parseInZone (value: string) {
+function parseInZone(value: string) {
   const plainDate = Temporal.PlainDate.from(value)
-  const zonedDate = plainDate.toZonedDateTime({ timeZone: 'America/Phoenix', plainTime: '00:00' })
-  
+  const zonedDate = plainDate.toZonedDateTime({
+    timeZone: "America/Phoenix",
+    plainTime: "00:00",
+  })
+
   return new Date(zonedDate.epochMilliseconds)
 }
 
