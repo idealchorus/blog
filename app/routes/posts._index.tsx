@@ -37,7 +37,7 @@ export async function loader() {
 
 export default function PostsPage(props: Route.ComponentProps) {
   return (
-    <article className="content-flow">
+    <article className="page">
       <header>
         <h1>Posts</h1>
       </header>

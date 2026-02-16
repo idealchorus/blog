@@ -10,13 +10,13 @@ export default function PostSummary({
   const date = postSummary.editedDate ?? postSummary.createdDate
 
   return (
-    <article className="article p-3">
-      <header className="flex flex-col mb-1">
+    <article className="post-summary">
+      <header>
         <Link to={`/posts/${postSummary.slug}`}>
           <h2>{postSummary.title}</h2>
         </Link>
         <time
-          className="text-sm text-paper-900 font-mono tracking-tight"
+          className="date"
           dateTime={date.toISOString()}
         >
           {dateToLocaleDateString(date)}

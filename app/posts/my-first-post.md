@@ -1,6 +1,6 @@
 ---
 title: My first post
-createdDate: 2025-08-27
+createdDate: "2026-02-16"
 contentType: static
 description: This is my first post and maybe my only post because I'm too indecisive.
 ---

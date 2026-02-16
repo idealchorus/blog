@@ -74,8 +74,7 @@ const markdocConfig: Markdoc.Config = {
         for (const child of children) {
           if (
             Markdoc.Tag.isTag(child) &&
-            child.name === "Heading" 
-            &&
+            child.name === "Heading" &&
             typeof child.attributes.level === "number"
           ) {
             const headingText = collectTextFromNodes(child.children)
@@ -112,24 +111,25 @@ const markdocConfig: Markdoc.Config = {
 
         const postId = createSlug(title)
 
-        return new Markdoc.Tag("article", { class: "post" }, [
+        return new Markdoc.Tag("article", { class: "page post" }, [
           new Markdoc.Tag("header", {}, [
-              new Markdoc.Tag("h1", { id: postId }, [title]),
-              new Markdoc.Tag("time", { datetime: date.toISOString() }, [dateToLocaleDateString(date)]),
+            new Markdoc.Tag("h1", { id: postId }, [title]),
+            new Markdoc.Tag("time", { class: "date", datetime: date.toISOString() }, [
+              dateToLocaleDateString(date),
+            ]),
           ]),
           ...out,
         ])
       },
     },
-        heading: {
+    heading: {
       transform(node, config) {
-        const level = node.attributes.level;
-        const children = node.transformChildren(config);
-        return new Markdoc.Tag("Heading", { level }, children);
+        const level = node.attributes.level
+        const children = node.transformChildren(config)
+        return new Markdoc.Tag("Heading", { level }, children)
       },
     },
   },
-  
 }
 
 export default markdocConfig
