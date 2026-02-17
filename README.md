@@ -3,7 +3,7 @@
 This is the repo for [my personal website](https://idealchorus.com). I've made
 it public because I thought it might be a useful tool for those who are working
 with a similar stack. It's built on React, React Router, Markdoc, and
-TailwindCSS. It's currently being hosted on Deno's platform.
+TailwindCSS. It's currently being hosted on Fly.io's platform.
 
 Also, If I made any typos or errors on the site, feel free to open a PR with a
 fix.
