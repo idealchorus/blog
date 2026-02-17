@@ -116,14 +116,16 @@
       font-size: var(--text-sm);
     }
 
-    :not(header, section) + :not(header, section) {
+    :not(header, section)+ :not(header, section) {
       margin-top: calc(var(--spacing) * 3);
     }
   }
 
   @scope (.post-summary) {
-    padding-top: calc(var(--spacing) * 3);
-    padding-bottom: calc(var(--spacing) * 3);
+    :scope {
+      padding-top: calc(var(--spacing) * 3);
+      padding-bottom: calc(var(--spacing) * 3);
+    }
 
     h2 {
       font-size: var(--text-xl);
