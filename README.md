@@ -12,6 +12,7 @@ fix.
 
 Here's a list of the things I need to do to the site.
 
+- Add custom theme for syntax highlighting
 - Render created and edited date as separate entities
 - Add styles for all markdown structures (e.g. code snippets, alerts, etc.)
 - Custom error page UI
