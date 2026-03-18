@@ -2,11 +2,7 @@ import { Link } from "react-router"
 import type { PostSummaryType } from "../library/schemas.ts"
 import { dateToLocaleDateString } from "../library/utils.ts"
 
-export default function PostSummary({
-  postSummary,
-}: {
-  postSummary: PostSummaryType
-}) {
+export default function PostSummary({ postSummary }: { postSummary: PostSummaryType }) {
   const date = postSummary.editedDate ?? postSummary.createdDate
 
   return (
@@ -15,10 +11,7 @@ export default function PostSummary({
         <Link to={`/posts/${postSummary.slug}`}>
           <h2>{postSummary.title}</h2>
         </Link>
-        <time
-          className="date"
-          dateTime={date.toISOString()}
-        >
+        <time className="date" dateTime={date.toISOString()}>
           {dateToLocaleDateString(date)}
         </time>
       </header>

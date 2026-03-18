@@ -1,17 +1,21 @@
 {
+  "$schema": "https://www.schemastore.org/tsconfig",
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "dom.asynciterable", "esnext"],
-    "types": ["node", "vite/client", "react", "react-dom", "@types/react"],
+    "target": "esnext",
+    "lib": ["esnext", "dom", "dom.iterable", "dom.asynciterable"],
+    "types": ["node", "vite/client", "react", "react-dom"],
     "rootDirs": [".", "./.react-router/types"],
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
-    "jsxImportSource": "react",
     "verbatimModuleSyntax": true,
     "strict": true,
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true
+    "noImplicitOverride": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force"
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": [".react-router/**"]

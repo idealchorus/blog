@@ -116,7 +116,7 @@
       font-size: var(--text-sm);
     }
 
-    :not(header, section)+ :not(header, section) {
+    :not(header, section) + :not(header, section) {
       margin-top: calc(var(--spacing) * 3);
     }
   }

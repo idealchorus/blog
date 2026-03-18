@@ -7,27 +7,41 @@
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "typegen": "react-router typegen",
-    "typecheck": "npm run typegen && tsc --noEmit"
+    "lint": "vp lint",
+    "format": "vp fmt",
+    "prepare": "vp config"
   },
   "dependencies": {
-    "@markdoc/markdoc": "^0.5.4",
-    "@react-router/node": "^7.13.0",
-    "@react-router/serve": "^7.13.0",
+    "@js-temporal/polyfill": "^0.5.1",
+    "@markdoc/markdoc": "^0.5.6",
+    "@react-router/node": "^7.13.1",
+    "@react-router/serve": "^7.13.1",
     "highlight.js": "^11.11.1",
-    "isbot": "^5.1.32",
+    "isbot": "^5.1.36",
+    "js-yaml": "^4.1.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-router": "^7.13.0",
-    "tailwindcss": "^4.1.18",
-    "zod": "^4.3.4"
+    "react-router": "^7.13.1",
+    "tailwindcss": "^4.2.1",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@react-router/dev": "^7.13.0",
-    "@tailwindcss/vite": "^4.1.18",
-    "@types/node": "^24.6.0",
-    "@types/react": "^19.2.4",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1"
+    "@react-router/dev": "^7.13.1",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-rsc": "~0.5.21",
+    "typescript": "6.0.1-rc",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.12",
+    "vite-plus": "latest"
   },
-  "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be"
+  "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be",
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    }
+  }
 }

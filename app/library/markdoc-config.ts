@@ -1,13 +1,20 @@
-import Markdoc from "@markdoc/markdoc"
-import { parse } from "@std/yaml"
+import Markdoc, {
+  type Config,
+  type Node,
+  type RenderableTreeNode,
+  type Scalar,
+  type Tag,
+} from "@markdoc/markdoc"
+import yaml from "js-yaml"
 import { postFrontmatterSchema } from "./schemas.ts"
 import { dateToLocaleDateString } from "./utils.ts"
 
-function collectTextFromScalar(scalar: Markdoc.Scalar): string {
+function collectTextFromScalar(scalar: Scalar): string {
   if (scalar === null) {
     return ""
   } else if (
-    typeof scalar === "boolean" || typeof scalar === "number" ||
+    typeof scalar === "boolean" ||
+    typeof scalar === "number" ||
     typeof scalar === "string"
   ) {
     return String(scalar)
@@ -30,9 +37,7 @@ function collectTextFromScalar(scalar: Markdoc.Scalar): string {
   }
 }
 
-function collectTextFromNodes(
-  children: Array<Markdoc.RenderableTreeNode>,
-): string {
+function collectTextFromNodes(children: Array<RenderableTreeNode>): string {
   let text = ""
 
   for (const child of children) {
@@ -53,13 +58,11 @@ function createSlug(text: string): string {
     .replace(/[^a-z0-9-]+/g, "")
 }
 
-const markdocConfig: Markdoc.Config = {
+const markdocConfig: Config = {
   nodes: {
     document: {
-      transform(node, config) {
-        const frontmatter = postFrontmatterSchema.parse(
-          parse(node.attributes.frontmatter),
-        )
+      transform(node: Node, config: Config) {
+        const frontmatter = postFrontmatterSchema.parse(yaml.load(node.attributes.frontmatter))
 
         const children = node.transformChildren(config)
 
@@ -68,8 +71,8 @@ const markdocConfig: Markdoc.Config = {
         const editedDate = frontmatter.editedDate
         const date = editedDate ?? createdDate
 
-        const out: Array<Markdoc.RenderableTreeNode> = []
-        const stack: Array<{ level: number; tag: Markdoc.Tag }> = []
+        const out: Array<RenderableTreeNode> = []
+        const stack: Array<{ level: number; tag: Tag }> = []
 
         for (const child of children) {
           if (
@@ -84,18 +87,11 @@ const markdocConfig: Markdoc.Config = {
             // Build a nested <section><header><hN id=...>...</hN></header>...</section>
             const section = new Markdoc.Tag("section", {}, [
               new Markdoc.Tag("header", {}, [
-                new Markdoc.Tag(
-                  `h${child.attributes.level}`,
-                  { id: headingId },
-                  child.children,
-                ),
+                new Markdoc.Tag(`h${child.attributes.level}`, { id: headingId }, child.children),
               ]),
             ])
 
-            while (
-              stack.length > 0 &&
-              stack[stack.length - 1]!.level >= child.attributes.level
-            ) {
+            while (stack.length > 0 && stack[stack.length - 1]!.level >= child.attributes.level) {
               stack.pop()
             }
 
@@ -114,19 +110,21 @@ const markdocConfig: Markdoc.Config = {
         return new Markdoc.Tag("article", { class: "page post" }, [
           new Markdoc.Tag("header", {}, [
             new Markdoc.Tag("h1", { id: postId }, [title]),
-            new Markdoc.Tag("time", {
-              class: "date",
-              datetime: date.toISOString(),
-            }, [
-              dateToLocaleDateString(date),
-            ]),
+            new Markdoc.Tag(
+              "time",
+              {
+                class: "date",
+                datetime: date.toISOString(),
+              },
+              [dateToLocaleDateString(date)],
+            ),
           ]),
           ...out,
         ])
       },
     },
     heading: {
-      transform(node, config) {
+      transform(node: Node, config: Config) {
         const level = node.attributes.level
         const children = node.transformChildren(config)
         return new Markdoc.Tag("Heading", { level }, children)
