@@ -5,6 +5,7 @@ import Markdoc, {
   type Scalar,
   type Tag,
 } from "@markdoc/markdoc"
+import hljs from "highlight.js"
 import yaml from "js-yaml"
 import { postFrontmatterSchema } from "./schemas.ts"
 import { dateToLocaleDateString } from "./utils.ts"
@@ -131,11 +132,18 @@ const markdocConfig: Config = {
       },
     },
     fence: {
-      render: "Fence",
-      attributes: {
-        language: {
-          type: String,
-        },
+      transform(node: Node) {
+        const language =
+          typeof node.attributes.language === "string" ? node.attributes.language : "plaintext"
+        const code = typeof node.attributes.content === "string" ? node.attributes.content : ""
+        const highlightedHtml = hljs.getLanguage(language)
+          ? hljs.highlight(code, { language }).value
+          : hljs.highlightAuto(code).value
+
+        return new Markdoc.Tag("Fence", {
+          language,
+          highlightedHtml,
+        })
       },
     },
   },
