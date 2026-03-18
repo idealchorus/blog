@@ -132,6 +132,14 @@ const markdocConfig: Markdoc.Config = {
         return new Markdoc.Tag("Heading", { level }, children)
       },
     },
+    fence: {
+      render: "Fence",
+      attributes: {
+        language: {
+          type: String,
+        },
+      },
+    },
   },
 }
 
