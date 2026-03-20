@@ -115,7 +115,7 @@ const markdocConfig: Config = {
               "time",
               {
                 class: "date",
-                datetime: date.toISOString(),
+                dateTime: date.toISOString(),
               },
               [dateToLocaleDateString(date)],
             ),
